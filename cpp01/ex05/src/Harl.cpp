@@ -1,0 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seb <seb@student.42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/03 19:10:06 by seb               #+#    #+#             */
+/*   Updated: 2025/06/03 19:26:14 by seb              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+#include "../Harl.hpp"
+
+Harl::Harl()
+{
+    
+}
+
+void    Harl::debug(void)
+{
+    std::cout << "I love having extra bacon for my 7XL burger. I really do!" << std::endl;
+}
+
+void    Harl::info(void)
+{
+    std::cout << "I cannot believe adding extra bacon costs more money. " << std::endl;
+}
+
+void    Harl::warning(void)
+{
+    std::cout << "I think I deserve to have some extra bacon for free" << std::endl;
+}
+
+void    Harl::error(void)
+{
+    std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
+}
+
+void Harl::complain(std::string level)
+{
+    int i = 0;
+    std::string levelType[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    void (Harl::*functions[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+
+    while(levelType[i] != level && i < 4)
+        i++;
+    if (levelType[i] == level)
+        (this->*functions[i])();
+}
+
