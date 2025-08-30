@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seb <seb@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-nogu <sle-nogu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 19:10:06 by seb               #+#    #+#             */
-/*   Updated: 2025/06/03 19:26:14 by seb              ###   ########.fr       */
+/*   Updated: 2025/07/23 16:11:20 by sle-nogu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include "../Harl.hpp"
 
 Harl::Harl()
+{
+    
+}
+
+Harl::~Harl()
 {
     
 }
@@ -49,4 +54,3 @@ void Harl::complain(std::string level)
     if (levelType[i] == level)
         (this->*functions[i])();
 }
-

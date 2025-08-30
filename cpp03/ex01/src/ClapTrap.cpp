@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seb <seb@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-nogu <sle-nogu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 10:50:45 by seb               #+#    #+#             */
-/*   Updated: 2025/06/06 12:12:56 by seb              ###   ########.fr       */
+/*   Updated: 2025/06/25 20:39:10 by sle-nogu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ int ClapTrap::getHitPoint()
     return (hitPoint);
 }
 
-
 ClapTrap::ClapTrap(std::string n)
 {
     name = n;
@@ -108,4 +107,26 @@ ClapTrap::ClapTrap(std::string n)
 ClapTrap::~ClapTrap()
 {
     std::cout << name << " got destructed" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other)
+{
+    std::cout << "Copy constructor called" << std::endl;
+    this->name = other.name;
+    this->energyPoint = other.energyPoint;
+    this->hitPoint = other.hitPoint;
+    this->attackDamage = other.attackDamage;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
+{
+    std::cout << "Copy assignement operator called" << std::endl;
+    if (this != &other)
+    {
+        this->name = other.name;
+        this->energyPoint = other.energyPoint;
+        this->hitPoint = other.energyPoint;
+        this->attackDamage = other.attackDamage;
+    }
+    return (*this);
 }

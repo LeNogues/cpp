@@ -3,18 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: seb <seb@student.42.fr>                    +#+  +:+       +#+         #
+#    By: sle-nogu <sle-nogu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/28 12:42:37 by seb               #+#    #+#              #
-#    Updated: 2025/05/28 12:42:53 by seb              ###   ########.fr        #
+#    Updated: 2025/07/07 15:16:18 by sle-nogu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    := ex01
+NAME    := phoneBook
 CC      := c++
 CFLAGS  := -Wall -Wextra -Werror -std=c++98
 
-SRC     := phoneBook.cpp
+SRC     := 	src/main.cpp \
+			src/PhoneBook.cpp \
+			src/Contact.cpp
+			
 OBJ_DIR := obj
 OBJS    := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
@@ -27,14 +30,14 @@ $(NAME): $(OBJS)
 
 # Compile les .cpp en .o dans obj/
 $(OBJ_DIR)/%.o: %.cpp
-	@mkdir -p $(OBJ_DIR)
+	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJ_DIR)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

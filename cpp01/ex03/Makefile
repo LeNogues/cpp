@@ -3,9 +3,9 @@ CC      := c++
 CFLAGS  := -Wall -Wextra -Werror -std=c++98
 
 SRC     := 	src/main.cpp \
-			src/humanB.cpp \
-			src/humanA.cpp \
-			src/weapon.cpp
+			src/HumanB.cpp \
+			src/HumanA.cpp \
+			src/Weapon.cpp
 
 OBJ_DIR := obj
 OBJS    := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
@@ -19,14 +19,14 @@ $(NAME): $(OBJS)
 
 # Compile les .cpp en .o dans obj/, en créant les sous-dossiers si nécessaire
 $(OBJ_DIR)/%.o: %.cpp
-	@mkdir -p $(dir $@)  
+	mkdir -p $(dir $@)  
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJ_DIR)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

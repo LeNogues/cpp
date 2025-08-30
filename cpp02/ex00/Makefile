@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: seb <seb@student.42.fr>                    +#+  +:+       +#+         #
+#    By: sle-nogu <sle-nogu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/22 16:10:44 by seb               #+#    #+#              #
-#    Updated: 2025/06/22 16:12:16 by seb              ###   ########.fr        #
+#    Updated: 2025/06/24 13:13:40 by sle-nogu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME    := ex00
 CC      := c++
 CFLAGS  := -Wall -Wextra -Werror -std=c++98
 
-SRC     := 	src/main.cpp 
+SRC     := 	src/main.cpp \
+			src/Fixed.cpp
 	
 OBJ_DIR := obj
 OBJS    := $(SRC:%.cpp=$(OBJ_DIR)/%.o)

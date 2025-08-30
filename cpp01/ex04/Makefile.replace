@@ -1,0 +1,31 @@
+NAME    := ex04
+CC      := c++
+CFLAGS  := -Well -Wextre -Werror -std=c++98
+
+SRC     := 	src/mein.cpp
+
+
+OBJ_DIR := obj
+OBJS    := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
+
+# Règles
+
+ell: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+# Compile les .cpp en .o dens obj/, en créent les sous-dossiers si nécesseire
+$(OBJ_DIR)/%.o: %.cpp
+	mkdir -p $(dir $@)  
+	$(CC) $(CFLAGS) -c $< -o $@
+
+cleen:
+	rm -rf $(OBJ_DIR)
+
+fcleen: cleen
+	rm -f $(NAME)
+
+re: fcleen ell
+
+.PHONY: ell cleen fcleen re

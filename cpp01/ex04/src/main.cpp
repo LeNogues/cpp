@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seb <seb@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-nogu <sle-nogu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 15:24:53 by seb               #+#    #+#             */
-/*   Updated: 2025/06/03 17:37:37 by seb              ###   ########.fr       */
+/*   Updated: 2025/07/23 21:36:14 by sle-nogu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,75 +14,43 @@
 #include <fstream>
 #include <sstream>
 
-bool isDelimiter(char c)
+int error_message(std::string str)
 {
-    return std::isspace(c) || std::ispunct(c);
+    std::cout << str << std::endl;
+    return (0);
 }
 
 int main(int argc, char **argv)
 {
     if (argc != 4)
-    {
-        std::cout << "this program needs 3 arguments" << std::endl;
-        return (0);
-    }
+        return (error_message("ERROR: this program needs 3 arguments"));
    
-    bool valid = true;
     int pos;
     size_t found;
     std::string newLine;
-    std::string fileName;
     std::string s1 = argv[2];
     std::string s2 = argv[3];
     std::string line;
     std::string outName = (std::string)argv[1] + ".replace";
     std::ifstream inFile(argv[1]);
-    if (!inFile)
-    {
-        std::cout << "couldn't open  inFile" << std::endl;
-        return (0);
-    }
-    if (s1 == "")
-    {
-        std::cout << "s1 can't be NULL" << std::endl;
-        return (0);
-    }
     std::ofstream outFile(outName.c_str());
+    
+    if (!inFile)
+        return (error_message("ERROR: couldn't open  inFile"));
+    if (s1 == "")
+        return (error_message("ERROR: s1 can't be NULL"));
     if (!outFile)
-    {
-        std::cout << "couldn't open outFile" << std::endl;
-        return (0);
-    }
+        return (error_message("ERROR: couldn't open outFile"));
+    
     while(std::getline(inFile, line))
     {
         pos = 0;
         newLine = "";
         while((found = line.find(s1, pos)) != std::string::npos)
         {
-            if (found != 0)
-            {
-                char before = line[found - 1];
-                if (!isDelimiter(before))
-                    valid = false;
-            }
-            size_t after_pos = found + s1.length();
-            if (after_pos < line.size())
-            {
-                char after = line[after_pos];
-                if (!isDelimiter(after))
-                    valid = false;
-            } 
-            if (valid)
-            {
-                newLine += line.substr(pos, found - pos);
-                newLine += s2;
-                pos = found + s1.length();
-            }
-            else
-            {
-                newLine += line.substr(pos, found - pos + 1);
-                pos = found + 1;
-            }
+            newLine += line.substr(pos, found - pos);
+            newLine += s2;
+            pos = found + s1.length();
         }
         newLine += line.substr(pos);
         outFile << newLine << std::endl; 

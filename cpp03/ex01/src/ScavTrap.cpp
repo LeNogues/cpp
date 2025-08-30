@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seb <seb@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-nogu <sle-nogu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 11:52:49 by seb               #+#    #+#             */
-/*   Updated: 2025/06/06 12:27:09 by seb              ###   ########.fr       */
+/*   Updated: 2025/06/25 21:01:06 by sle-nogu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,26 @@ ScavTrap::ScavTrap(std::string n) : ClapTrap(n)
 ScavTrap::~ScavTrap()
 {
     std::cout << getName() << " got destructed, but better" << std::endl;
+}
+
+ScavTrap::ScavTrap(ScavTrap& other) : ClapTrap(other)
+{
+    std::cout << "Copy constructor called" << std::endl;
+    setName(other.getName());
+    setEnergyPoint(other.getEnergyPoint());
+    setHitPoint(other.getHitPoint());
+    setAttackDamage(other.getAttackDamage());
+}
+
+ScavTrap& ScavTrap::operator=(ScavTrap& other)
+{
+    std::cout << "Copy assignement operator called" << std::endl;
+    if (this != &other)
+    {
+        setName(other.getName());
+        setEnergyPoint(other.getEnergyPoint());
+        setHitPoint(other.getHitPoint());
+        setAttackDamage(other.getAttackDamage());
+    }
+    return (*this);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seb <seb@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-nogu <sle-nogu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 19:10:01 by seb               #+#    #+#             */
-/*   Updated: 2025/06/03 19:15:19 by seb              ###   ########.fr       */
+/*   Updated: 2025/07/23 16:07:59 by sle-nogu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ class Harl
                 void    error(void);
 
     public :    Harl();
+                ~Harl();
                 void    complain(std::string level);
 };

@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: seb <seb@student.42.fr>                    +#+  +:+       +#+         #
+#    By: sle-nogu <sle-nogu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/28 12:33:52 by seb               #+#    #+#              #
-#    Updated: 2025/06/03 09:23:53 by seb              ###   ########.fr        #
+#    Updated: 2025/07/07 15:16:40 by sle-nogu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    := ex00
+NAME    := megaphone
 CC      := c++
 CFLAGS  := -Wall -Wextra -Werror -std=c++98
 
@@ -27,14 +27,14 @@ $(NAME): $(OBJS)
 
 # Compile les .cpp en .o dans obj/
 $(OBJ_DIR)/%.o: %.cpp
-	@mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJ_DIR)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

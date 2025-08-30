@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seb <seb@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-nogu <sle-nogu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 10:59:53 by seb               #+#    #+#             */
-/*   Updated: 2025/06/02 11:18:23 by seb              ###   ########.fr       */
+/*   Updated: 2025/07/23 14:50:10 by sle-nogu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../zombie.hpp"
+#include "../Zombie.hpp"
 
 void randomChump(std::string name)
 {

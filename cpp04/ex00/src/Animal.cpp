@@ -6,12 +6,14 @@
 /*   By: sle-nogu <sle-nogu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 16:36:40 by sle-nogu          #+#    #+#             */
-/*   Updated: 2025/07/29 12:37:58 by sle-nogu         ###   ########.fr       */
+/*   Updated: 2025/08/06 15:14:33 by sle-nogu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/Animal.hpp"
 //canonical form ///////////////////////////////////////////////////////////////
+
+#pragma region Description 
 
 Animal::Animal()
 {
@@ -37,6 +39,9 @@ Animal& Animal::operator=(Animal& other)
     }
     return (*this);
 }
+
+#pragma endregion
+
 
 //canonical form ///////////////////////////////////////////////////////////////
 

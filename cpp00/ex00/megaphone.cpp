@@ -3,30 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seb <seb@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-nogu <sle-nogu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 12:20:58 by seb               #+#    #+#             */
-/*   Updated: 2025/05/28 12:43:24 by seb              ###   ########.fr       */
+/*   Updated: 2025/07/04 10:09:08 by sle-nogu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "megaphone.hpp"
+#include <iostream>
 
-void megaphone::amplify(std::string str)
+void amplify(char **argv)
 {
-    for(long unsigned int i = 0; i < str.length(); i++)
-        str[i] = toupper(str[i]);
-    std::cout << str << std::endl;
+    int j = 1;
+    int length;
+    std::string str;
+
+    while(argv[j])
+    {
+        str = argv[j];
+        length = str.length();
+        for(long unsigned int i = 0; i < str.length(); i++)
+            str[i] = toupper(str[i]);
+        std::cout << str;
+        j++;
+    }
+    std::cout << std::endl;
+
 }
 
 int main(int argc, char **argv)
 {
-    if (argc < 2 || argc > 2)
-    {
-        std::cout << "need 1 arguments" << std::endl;
-        return (0);
-    }
-        
-    megaphone ampli;
-    ampli.amplify(argv[1]);
+    if (argc == 1 || (argc > 1 && argv[1][0] == 0))
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+    else
+        amplify(argv);
 }
